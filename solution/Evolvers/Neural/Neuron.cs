@@ -9,16 +9,16 @@ namespace Evolvers.Neural
     {
         public IEnumerable<float> Weights { get; private set; }
 
-        public float Signal;
-
-        public Neuron(int inputs)
+        public Neuron(IEnumerable<float> weights)
         {
-            Weights = new float[inputs];
+            Weights = weights;
         }
 
-        public void UpdateSignal(IEnumerable<float> inputs)
+        public float GetSignal(IEnumerable<float> inputs)
         {
-            Signal = Enumerable.Range(0, Weights.Count()).Sum(i => inputs.ElementAt(i) * Weights.ElementAt(i));
+            float signal = Enumerable.Range(0, inputs.Count()).Sum(k => inputs.ElementAt(k) * Weights.ElementAt(k));
+            // sigmoid
+            return 2 / (1 + (float)Math.Exp(-2 * signal)) - 1;
         }
     }
 }

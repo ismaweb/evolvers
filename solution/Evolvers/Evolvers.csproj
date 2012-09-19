@@ -78,7 +78,6 @@
     <Compile Include="Model\FoodElement.cs" />
     <Compile Include="Model\PlaygroundElement.cs" />
     <Compile Include="Model\Universe.cs" />
-    <Compile Include="Neural\Input.cs" />
     <Compile Include="Neural\NeuralLayer.cs" />
     <Compile Include="Neural\NeuralNetwork.cs" />
     <Compile Include="Neural\Neuron.cs" />

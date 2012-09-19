@@ -8,23 +8,13 @@ namespace Evolvers.Neural
     public class NeuralNetwork
     {
         public IEnumerable<NeuralLayer> Layers { get; private set; }
-        
+
         public NeuralNetwork(float[][][] weights)
         {
-            List<NeuralLayer> layers = new List<NeuralLayer>();
-            /*
-            for(int i = 0; i < weights.Length; i++)
-            {
-                layers.Add(new NeuralLayer(weights[i], 
-            }
-            */
-            Layers = new NeuralLayer[] {
-                new NeuralLayer(inputs, 10),
-                new NeuralLayer(10, outputs)
-            };
+            Layers = Enumerable.Range(0, weights.Count()).Select(i => new NeuralLayer(weights[i])).ToArray();
         }
 
-        public IEnumerable<float> ProcessInputs(IEnumerable<float> inputs)
+        public IEnumerable<float> Process(IEnumerable<float> inputs)
         {
             IEnumerable<float> signals = inputs;
 
@@ -35,6 +25,5 @@ namespace Evolvers.Neural
 
             return signals;
         }
-
     }
 }

@@ -7,18 +7,16 @@ namespace Evolvers.Neural
 {
     public class NeuralLayer
     {
+        public IEnumerable<Neuron> Neurons { get; private set; }
 
-        public IEnumerable<Neuron> Neurons { get; public set; }
-
-        public NeuralLayer(int inputs, int neurons)
+        public NeuralLayer(float[][] weights)
         {
-            Neurons = Enumerable.Range(0, neurons).Select(i => new Neuron(inputs));
+            Neurons = Enumerable.Range(0, weights.Count()).Select(i => new Neuron(weights[i])).ToArray();
         }
 
-        public IEnumerable<float> GetSignals(IEnumerable<float> inputs)
+        internal IEnumerable<float> GetSignals(IEnumerable<float> inputs)
         {
-            return Neurons.Select(n => { n.UpdateSignal(inputs); return n.Signal; });
+            return Neurons.Select(n => n.GetSignal(inputs)).ToArray();
         }
-
     }
 }

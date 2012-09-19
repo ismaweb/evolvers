@@ -8,11 +8,16 @@ namespace Evolvers.Model
 {
     public class CreatureElement : PlaygroundElement
     {
-        public NeuralNetwork Brain { get; private set;}
+        public NeuralNetwork Brain { get; set;}
 
         public CreatureElement()
         {
-            Brain = new NeuralNetwork();
+            
+        }
+
+        internal void Run()
+        {
+            
         }
     }
 }
