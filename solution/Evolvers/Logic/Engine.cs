@@ -20,21 +20,21 @@ namespace Evolvers.Logic
         {
             CreatureElement creature = new CreatureElement();
 
-            float[][][] weights = new float[][][] { 
-                new float[][]{ 
-                    new float[]{ 1, 2, 3, 4 },
-                    new float[]{ -1, 2, -3, 4 },
-                    new float[]{ 4, 3, 2, 1 }
+            double[][][] weights = new double[][][] { 
+                new double[][]{ 
+                    new double[]{ 1, 2, 3, 4 },
+                    new double[]{ -1, 2, -3, 4 },
+                    new double[]{ 4, 3, 2, 1 }
                 },
             };
 
             creature.Brain = new NeuralNetwork(weights);
 
-            Universe.Creatures.Add(creature);
+            Universe.Elements.Add(creature);
 
             while (true)
             {
-                foreach (CreatureElement c in Universe.Creatures)
+                foreach (CreatureElement c in Universe.Elements)
                 {
                     c.Run();
                 }

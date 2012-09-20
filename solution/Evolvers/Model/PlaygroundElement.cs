@@ -6,18 +6,29 @@ using System.Windows;
 
 namespace Evolvers.Model
 {
-    public class PlaygroundElement
+    public class PlaygroundElement : IPositionable
     {
-        public double CenterX;
-        public double CenterY;
+        protected Universe Universe { get; private set; }
+        public Vector Position { get; set; }
 
         public double Width;
         public double Height;
 
-        public Rect GetRect()
+        public PlaygroundElement(Universe universe)
         {
-            return new Rect(CenterX - Width / 2, CenterY - Height / 2, Width, Height);
+            Universe = universe;
         }
 
+        public double GetSize()
+        {
+            return Width * Height;
+        }
+
+        public Rect GetRect()
+        {
+            return new Rect(Position.X - Width / 2, Position.Y - Height / 2, Width, Height);
+        }
+
+        
     }
 }

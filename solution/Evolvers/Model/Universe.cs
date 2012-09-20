@@ -7,13 +7,11 @@ namespace Evolvers.Model
 {
     public class Universe
     {
-        public List<FoodElement> Food { get; private set; }
-        public List<CreatureElement> Creatures { get; private set; }
-
+        public List<PlaygroundElement> Elements { get; private set; }
+        
         public Universe()
         {
-            Food = new List<FoodElement>();
-            Creatures = new List<CreatureElement>();
+            Elements = new List<PlaygroundElement>();
         }
 
         public void NotifyChanges() {

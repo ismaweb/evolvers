@@ -76,7 +76,12 @@
   <ItemGroup>
     <Compile Include="Model\CreatureElement.cs" />
     <Compile Include="Model\FoodElement.cs" />
+    <Compile Include="Model\FoodSensor.cs" />
+    <Compile Include="Model\IOrientable.cs" />
+    <Compile Include="Model\IPositionable.cs" />
+    <Compile Include="Model\MoonWalker.cs" />
     <Compile Include="Model\PlaygroundElement.cs" />
+    <Compile Include="Model\Sensor.cs" />
     <Compile Include="Model\Universe.cs" />
     <Compile Include="Neural\NeuralLayer.cs" />
     <Compile Include="Neural\NeuralNetwork.cs" />

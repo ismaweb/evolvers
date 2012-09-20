@@ -9,14 +9,14 @@ namespace Evolvers.Neural
     {
         public IEnumerable<NeuralLayer> Layers { get; private set; }
 
-        public NeuralNetwork(float[][][] weights)
+        public NeuralNetwork(double[][][] weights)
         {
             Layers = Enumerable.Range(0, weights.Count()).Select(i => new NeuralLayer(weights[i])).ToArray();
         }
 
-        public IEnumerable<float> Process(IEnumerable<float> inputs)
+        public IEnumerable<double> Process(IEnumerable<double> inputs)
         {
-            IEnumerable<float> signals = inputs;
+            IEnumerable<double> signals = inputs;
 
             foreach (NeuralLayer layer in Layers)
             {

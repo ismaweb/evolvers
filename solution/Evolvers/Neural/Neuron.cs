@@ -7,18 +7,18 @@ namespace Evolvers.Neural
 {
     public class Neuron
     {
-        public IEnumerable<float> Weights { get; private set; }
+        public IEnumerable<double> Weights { get; private set; }
 
-        public Neuron(IEnumerable<float> weights)
+        public Neuron(IEnumerable<double> weights)
         {
             Weights = weights;
         }
 
-        public float GetSignal(IEnumerable<float> inputs)
+        public double GetSignal(IEnumerable<double> inputs)
         {
-            float signal = Enumerable.Range(0, inputs.Count()).Sum(k => inputs.ElementAt(k) * Weights.ElementAt(k));
+            double signal = Enumerable.Range(0, inputs.Count()).Sum(k => inputs.ElementAt(k) * Weights.ElementAt(k));
             // sigmoid
-            return 2 / (1 + (float)Math.Exp(-2 * signal)) - 1;
+            return 2 / (1 + (double)Math.Exp(-2 * signal)) - 1;
         }
     }
 }
